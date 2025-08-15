@@ -8,13 +8,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="/favicon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="/stylesheet">
-    <script  type="text/javascript" defer src="/htmx"></script>
-    <script  type="text/javascript" defer src="/response-targets"></script>
-    <script  type="text/javascript" defer src="/sse"></script>
-    <script  type="text/javascript" defer src="/action_script"></script>
+    <script defer src="/htmx"></script>
+    <script defer src="/response-targets"></script>
     {% block head %}{% endblock %}
   </head>
   <body>
+    <nav>
+      <a
+	id="logout"
+	hx-post="/logout"
+	hx-swap="innerHTML"
+	hx-push-url="/"
+	hx-target="body">
+	LOGOUT
+      </a>
+    </nav>
     <div id="template_pages">
       {% block individual_page_contents %}
       {% endblock %}
